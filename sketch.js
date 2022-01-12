@@ -36,9 +36,22 @@ function draw() {
     stroke(120, 100, 100)
     strokeWeight(10)
     circle(pos.x, pos.y, 8)
+    circle(pos.x + a.x, pos.y + a.y, 8)
+
 
     let v = vectorProjection(a, b)
+    stroke(210, 100, 100)
     strokeWeight(8)
     line(pos.x, pos.y, pos.x + v.x, pos.y + v.y)
+    fill(0, 100, 100)
+    stroke(0, 100, 100)
+    circle(pos.x + v.x, pos.y + v.y, 8)
+
+    // draw a dotted line between our vertex and the endpoint of a
+    drawingContext.setLineDash([5, 5])
+    stroke(0, 0, 100, 50)
+    strokeWeight(2)
+    line(pos.x + v.x, pos.y + v.y, pos.x + a.x, pos.y + a.y)
+    drawingContext.setLineDash([])
 
 }
